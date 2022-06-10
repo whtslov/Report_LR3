@@ -19,23 +19,31 @@
 ### 3. Текст программы
 
 ```c++
-#include<fstream>
-#include<cmath>
+#include <iostream> 
+#include <fstream> 
+#include <cmath> /
 using namespace std;
 
-int main(){
-float a, b, c, res;
-ofstream ofile;
-ifstream ifile("ifile.txt");
-ifile » a » b » c;
-ifile.close();
+int main()
+{
+	float a, b, c;
+	ifstream ifile("input.txt"); 
 
-res = sqrt(a*a + b*b + c*c);
-ofile.open("ofile.txt");
-ofile « res;
-ofile.close();
+	if (!ifile.is_open())
+		cout << "файл не открыт \n";
 
-return(0);
+	ifile >> a >> b >> c; 
+	ifile.close(); 
+
+	float d;
+	d = sqrt(a * a + b * b + c * c); 
+
+	ofstream ofile("output.txt"); 
+	ofile << d; 
+	ofile.close(); 
+
+	system("pause");
+	return (0);
 }
 ```
 
